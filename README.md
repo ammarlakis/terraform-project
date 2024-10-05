@@ -8,7 +8,7 @@ This project demonstrates how to effectively structure Terraform code for managi
 
 - **init/**: Contains Terraform configuration that sets up core infrastructure components required for managing Terraform state. This includes the creation of the S3 bucket for storing state, the DynamoDB table for state locking, and the IAM role for managing access to these resources.
   
-- **environments/**: Holds subfolders for each environment (e.g., `dev/`, `staging/`, `prod/`). Each environment has its own Terraform configuration, but shares the same backend, storing its state in the S3 bucket created during the `init` step.
+- **environments/**: Holds subfolders for each environment (e.g., `development/`, `prod/`). Each environment has its own Terraform configuration, but shares the same backend, storing its state in the S3 bucket created during the `init` step.
 
 ### Key Resources
 
@@ -119,4 +119,4 @@ This tiered approach enables you to scale your infrastructure without complicati
 
 - **Versioned State**: The state file is stored with versioning enabled to protect against accidental overwrites or corruption.
 - **State Locking**: Use DynamoDB for locking to prevent concurrent changes to the same state file.
-- **Environment Separation**: Separate environments ensure isolated configurations and state for each stage (dev, staging, production), which is essential for managing infrastructure lifecycles effectively.
+- **Environment Separation**: Separate environments ensure isolated configurations and state for each stage (development, production), which is essential for managing infrastructure lifecycles effectively.
